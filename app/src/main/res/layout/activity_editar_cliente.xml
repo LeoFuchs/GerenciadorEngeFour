@@ -119,7 +119,6 @@
         android:layout_height="40dp"
         android:layout_weight="0.21">
 
-
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
