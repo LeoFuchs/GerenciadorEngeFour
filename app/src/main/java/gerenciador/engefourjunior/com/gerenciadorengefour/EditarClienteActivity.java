@@ -16,6 +16,7 @@ import gerenciador.engefourjunior.com.gerenciadorengefour.Uteis.Alerta;
 public class EditarClienteActivity extends AppCompatActivity {
 
     /*COMPONENTES DA TELA*/
+    EditText         editTextCodigo;
     EditText         editTextNome;
     EditText         editTextTelefone;
     EditText         editTextEmail;
@@ -40,6 +41,8 @@ public class EditarClienteActivity extends AppCompatActivity {
 
     //VINCULA OS COMPONENTES DA TELA(VIEW) AOS OBJETOS DECLARADOS.
     protected  void CriarComponentes(){
+
+        editTextCodigo         = (EditText) this.findViewById(R.id.editTextCodigo);
 
         editTextNome           = (EditText) this.findViewById(R.id.editTextNome);
 
@@ -109,6 +112,8 @@ public class EditarClienteActivity extends AppCompatActivity {
             /*CRIANDO UM OBJETO PESSOA*/
             ClienteModel pessoaModel = new ClienteModel();
 
+            pessoaModel.setCodigo(Integer.parseInt(editTextCodigo.getText().toString()));
+
             /*SETANDO O VALOR DO CAMPO NOME*/
             pessoaModel.setNome(editTextNome.getText().toString().trim());
 
@@ -160,6 +165,9 @@ public class EditarClienteActivity extends AppCompatActivity {
 
         //CONSULTA UMA PESSOA POR ID
         ClienteModel pessoaModel = pessoaRepository.GetPessoa(id_pessoa);
+
+        //SETA O CÓDIGO NA VIEW
+        editTextCodigo.setText(String.valueOf(pessoaModel.getCodigo()));
 
         //SETA O NOME NA VIEW
         editTextNome.setText(pessoaModel.getNome());

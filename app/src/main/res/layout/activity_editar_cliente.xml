@@ -21,7 +21,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.43">
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +42,8 @@
         android:id="@+id/editTextNome"
         android:layout_below="@+id/textViewNome"
         android:layout_alignLeft="@+id/textViewNome"
-        android:layout_alignStart="@+id/textViewNome" />
+        android:layout_alignStart="@+id/textViewNome"
+        android:layout_marginRight="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,6 +65,7 @@
         android:layout_below="@+id/textViewEmail"
         android:layout_alignLeft="@+id/textViewEmail"
         android:layout_alignStart="@+id/textViewEmail"
+        android:layout_marginRight="20dp"
         />
 
     <TextView
@@ -87,6 +90,27 @@
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Código:"
+            android:id="@+id/textViewCodigo"
+            android:layout_below="@+id/editTextTelefone"
+            android:layout_alignLeft="@+id/editTextCodigo"
+            android:layout_alignStart="@+id/editTextCodigo"
+            android:layout_marginRight="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:id="@+id/editTextCodigo"
+            android:layout_below="@+id/textViewCodigo"
+            android:layout_alignLeft="@+id/editTextTelefone"
+            android:layout_alignStart="@+id/editTextTelefone"
+            android:layout_marginRight="20dp"/>
 
     </RelativeLayout>
 
