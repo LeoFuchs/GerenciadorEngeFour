@@ -32,9 +32,9 @@ public class ClienteRepository {
 
         ContentValues contentValues =  new ContentValues();
         /*MONTANDO OS PARAMETROS PARA SEREM SALVOS*/
-        contentValues.put("ds_nome",       pessoaModel.getNome());
-        contentValues.put("ds_email",   pessoaModel.getEmail());
-        contentValues.put("ds_telefone",       pessoaModel.getTelefone());
+        contentValues.put("ds_nome",        pessoaModel.getNome());
+        contentValues.put("ds_email",       pessoaModel.getEmail());
+        contentValues.put("ds_telefone",    pessoaModel.getTelefone());
 
         /*EXECUTANDO INSERT DE UM NOVO REGISTRO*/
         databaseUtil.GetConexaoDataBase().insert("tb_cliente",null,contentValues);
@@ -51,8 +51,8 @@ public class ClienteRepository {
 
         /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
         contentValues.put("ds_nome",       pessoaModel.getNome());
-        contentValues.put("ds_email",   pessoaModel.getEmail());
-        contentValues.put("ds_telefone",       pessoaModel.getTelefone());
+        contentValues.put("ds_email",      pessoaModel.getEmail());
+        contentValues.put("ds_telefone",   pessoaModel.getTelefone());
 
         /*REALIZANDO UPDATE PELA CHAVE DA TABELA*/
         databaseUtil.GetConexaoDataBase().update("tb_cliente", contentValues, "id_cliente = ?", new String[]{Integer.toString(pessoaModel.getCodigo())});

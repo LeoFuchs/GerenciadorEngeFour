@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastrarClienteActivity" />
-        <activity android:name=".ConsultarClienteActivity"></activity>
+        <activity android:name=".ConsultarClienteActivity" />
+        <activity android:name=".EditarClienteActivity"></activity>
     </application>
 
 </manifest>

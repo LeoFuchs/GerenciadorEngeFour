@@ -1,6 +1,7 @@
 package gerenciador.engefourjunior.com.gerenciadorengefour.Uteis;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gerenciador.engefourjunior.com.gerenciadorengefour.ConsultarClienteActivity;
+import gerenciador.engefourjunior.com.gerenciadorengefour.EditarClienteActivity;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ClienteModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.R;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ClienteRepository;
@@ -115,7 +117,15 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
+                Intent intentRedirecionar = new Intent(consultarActivity, EditarClienteActivity.class);
 
+                intentRedirecionar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                intentRedirecionar.putExtra("id_cliente",pessoaModels.get(position).getCodigo());
+
+                consultarActivity.startActivity(intentRedirecionar);
+
+                consultarActivity.finish();
             }
         });
 
