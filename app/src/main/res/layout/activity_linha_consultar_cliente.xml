@@ -21,7 +21,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
-            android:typeface="monospace" />
+             />
     </RelativeLayout>
 
     <RelativeLayout
@@ -42,7 +42,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:textColor="@color/abc_hint_foreground_material_light"
-            android:typeface="monospace" />
+             />
 
     </RelativeLayout>
 
@@ -63,7 +63,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:textColor="@color/abc_hint_foreground_material_light"
-            android:typeface="monospace" />
+             />
 
     </RelativeLayout>
 
