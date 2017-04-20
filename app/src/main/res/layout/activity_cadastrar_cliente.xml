@@ -1,70 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nome:"
-        android:id="@+id/textViewNome" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextNome" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email:"
-        android:id="@+id/textViewEmail" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextEmail" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Telefone:"
-        android:id="@+id/textViewTelefone" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextTelefone" />
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="37dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Cadastrar Cliente"
+            android:id="@+id/textView"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.72">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Nome:"
+            android:id="@+id/textViewNome"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:id="@+id/editTextNome"
+            android:layout_below="@+id/textViewNome"
+            android:layout_alignLeft="@+id/textViewNome"
+            android:layout_alignStart="@+id/textViewNome"
+            android:layout_marginRight="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Email:"
+            android:id="@+id/textViewEmail"
+            android:layout_marginTop="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/editTextNome"
+            android:layout_alignLeft="@+id/textViewNome"
+            android:layout_alignStart="@+id/textViewNome" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:id="@+id/editTextEmail"
+            android:layout_below="@+id/textViewEmail"
+            android:layout_alignLeft="@+id/textViewEmail"
+            android:layout_alignStart="@+id/textViewEmail"
+            android:layout_marginRight="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Telefone:"
+            android:id="@+id/textViewTelefone"
+            android:layout_below="@+id/editTextEmail"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:id="@+id/editTextTelefone"
+            android:layout_below="@+id/textViewTelefone"
+            android:layout_alignLeft="@+id/textViewTelefone"
+            android:layout_alignStart="@+id/textViewTelefone"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0.35">
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/voltar"
             android:id="@+id/buttonVoltar"
-            android:layout_alignTop="@+id/buttonSalvar"
+            android:background="@android:color/transparent"
+            android:textColor="#276bea"
+            android:typeface="monospace"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="95dp"
-            android:layout_marginStart="95dp" />
+            android:layout_alignParentStart="true" />
 
         <Button
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/salvar"
+            android:background="@android:color/transparent"
+            android:text="Salvar"
             android:id="@+id/buttonSalvar"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/buttonVoltar"
-            android:layout_toEndOf="@+id/buttonVoltar" />
+            android:textColor="#276bea"
+            android:typeface="monospace"
+            android:layout_marginRight="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_alignTop="@+id/buttonVoltar"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

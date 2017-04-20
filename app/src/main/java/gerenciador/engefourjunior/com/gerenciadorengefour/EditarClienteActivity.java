@@ -128,7 +128,6 @@ public class EditarClienteActivity extends AppCompatActivity {
             new ClienteRepository(this).Atualizar(pessoaModel);
 
             /*MENSAGEM DE SUCESSO!*/
-
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
             //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA

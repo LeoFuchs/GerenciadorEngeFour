@@ -1,7 +1,9 @@
 package gerenciador.engefourjunior.com.gerenciadorengefour;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -116,7 +118,28 @@ public class CadastrarClienteActivity extends AppCompatActivity {
             new ClienteRepository(this).Salvar(pessoaModel);
 
             /*MENSAGEM DE SUCESSO!*/
-            Alerta.Alert(this,this.getString(R.string.registro_salvo_sucesso));
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+
+            //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA
+            alertDialog.setTitle(R.string.app_name);
+
+            //MENSAGEM A SER EXIBIDA
+            alertDialog.setMessage("Cliente cadastrado com sucesso! ");
+
+            //CRIA UM BOTÃO COM O TEXTO OK SEM AÇÃO
+            alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+
+                    //RETORNA PARA A TELA DE CONSULTA
+                    Intent intentRedirecionar = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intentRedirecionar);
+                    finish();
+                }
+            });
+
+            //MOSTRA A MENSAGEM NA TELA
+            alertDialog.show();
 
             LimparCampos();
         }
