@@ -34,12 +34,12 @@
             android:id="@+id/buttonVoltar"
             android:textColor="#276bea"
             android:background="@android:color/transparent"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp"
             android:typeface="monospace"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="42dp"
+            android:layout_marginStart="42dp" />
     </RelativeLayout>
 
 </LinearLayout>
