@@ -92,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentRedirecionar);
             finish();
         }
+        else if(opcaoMenu.equals("Consultar Produtos")){
+            intentRedirecionar = new Intent(this, ConsultarProdutoActivity.class);
+            startActivity(intentRedirecionar);
+            finish();
+        }
         else
             Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();
 

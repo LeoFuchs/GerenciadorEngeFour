@@ -13,34 +13,37 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import gerenciador.engefourjunior.com.gerenciadorengefour.ConsultarClienteActivity;
+import gerenciador.engefourjunior.com.gerenciadorengefour.ConsultarProdutoActivity;
 import gerenciador.engefourjunior.com.gerenciadorengefour.EditarClienteActivity;
-import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ClienteModel;
+import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ProdutoModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.R;
-import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ClienteRepository;
+import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ProdutoRepository;
 
-public class LinhaConsultarClienteAdapter extends BaseAdapter {
+/**
+ * Created by Leo on 20/04/2017.
+ */
+public class LinhaConsultarProdutoAdapter extends BaseAdapter {
 
     //CRIANDO UM OBJETO LayoutInflater PARA FAZER LINK A NOSSA VIEW(activity_linha_consultar.xml)
     private static LayoutInflater layoutInflater = null;
 
     //CRIANDO UMA LISTA DE PESSOAS
-    List<ClienteModel> pessoaModels =  new ArrayList<ClienteModel>();
+    List<ProdutoModel> pessoaModels =  new ArrayList<ProdutoModel>();
 
     //CIRANDO UM OBJETO DA NOSSA CLASSE QUE FAZ ACESSO AO BANCO DE DADOS
-    ClienteRepository pessoaRepository;
+    ProdutoRepository pessoaRepository;
 
     //CRIANDO UM OBJETO DA NOSSA ATIVIDADE QUE CONTEM A LISTA
-    private ConsultarClienteActivity consultarActivity;
+    private ConsultarProdutoActivity consultarActivity;
 
     //CONSTRUTOR QUE VAI RECEBER A NOSSA ATIVIDADE COMO PARAMETRO E A LISTA DE PESSOAS QUE VAI RETORNAR
     //DA NOSSA BASE DE DADOS
-    public LinhaConsultarClienteAdapter(ConsultarClienteActivity consultarActivity, List<ClienteModel> pessoaModels ) {
+    public LinhaConsultarProdutoAdapter(ConsultarProdutoActivity consultarActivity, List<ProdutoModel> pessoaModels ) {
 
         this.pessoaModels       =  pessoaModels;
         this.consultarActivity  =  consultarActivity;
         this.layoutInflater     = (LayoutInflater) this.consultarActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.pessoaRepository   = new ClienteRepository(consultarActivity);
+        this.pessoaRepository   = new ProdutoRepository(consultarActivity);
     }
 
     //RETORNA A QUANTIDADE DE REGISTROS DA LISTA
@@ -65,18 +68,16 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
 
 
         //CRIANDO UM OBJETO DO TIPO View PARA ACESSAR O NOSSO ARQUIVO DE LAYOUT activity_linha_consultar.xml
-        final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar_cliente,null);
+        final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar_produto,null);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
 
-        //CAMPO QUE VAI MOSTRAR O NOME DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O NOME DO PRODUTO
         TextView textViewNome            = (TextView) viewLinhaLista.findViewById(R.id.textViewNome);
 
-        //CAMPO QUE VAI MOSTRAR O ENDEREÇO DA PESSOA
-        TextView textViewEmail        = (TextView) viewLinhaLista.findViewById(R.id.textViewEmail);
+        //CAMPO QUE VAI MOSTRAR O VALOR DO PRODUTO
+        TextView textViewValor        = (TextView) viewLinhaLista.findViewById(R.id.textViewValor);
 
-        //CAMPOS QUE VAI MOSTRAR O TELEFONE DA PESSOA
-        TextView textViewTelefone            = (TextView) viewLinhaLista.findViewById(R.id.textViewTelefone);
 
         //CRIANDO O BOTÃO  EXCLUIR PARA DELETARMOS UM REGISTRO DO BANCO DE DADOS
         Button buttonExcluir             = (Button)   viewLinhaLista.findViewById(R.id.buttonExcluir);
@@ -88,10 +89,7 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
         textViewNome.setText(pessoaModels.get(position).getNome());
 
         //SETANDO O EMAIL NO CAMPO DA NOSSA VIEW
-        textViewEmail.setText(pessoaModels.get(position).getEmail());
-
-        //SETANDO O TELEFONE NO CAMPO DA NOSSA VIEW
-        textViewTelefone.setText(pessoaModels.get(position).getTelefone());
+        textViewValor.setText(pessoaModels.get(position).getValor() + " Reais");
 
         //CRIANDO EVENTO CLICK PARA O BOTÃO DE EXCLUIR REGISTRO
         buttonExcluir.setOnClickListener(new View.OnClickListener() {
@@ -121,14 +119,13 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
 
                 intentRedirecionar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-                intentRedirecionar.putExtra("id_cliente",pessoaModels.get(position).getCodigo());
+                intentRedirecionar.putExtra("id_produto",pessoaModels.get(position).getCodigo());
 
                 consultarActivity.startActivity(intentRedirecionar);
 
                 consultarActivity.finish();
             }
         });
-
 
         return viewLinhaLista;
     }
