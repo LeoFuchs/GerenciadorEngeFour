@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         String[] itens = new String[2];
 
-        itens[0] = "Cadastrar Cliente";
+        itens[0] = "Cadastrar Novo Cliente";
         itens[1] = "Consultar Clientes";
 
         ArrayAdapter<String> arrayItens = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,itens);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intentRedirecionar;
 
-        if(opcaoMenu.equals("Cadastrar Cliente")){
+        if(opcaoMenu.equals("Cadastrar Novo Cliente")){
 
             intentRedirecionar = new Intent(this, CadastrarClienteActivity.class);
             startActivity(intentRedirecionar);
