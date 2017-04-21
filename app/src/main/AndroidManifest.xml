@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".CadastrarClienteActivity" />
         <activity android:name=".ConsultarClienteActivity" />
-        <activity android:name=".EditarClienteActivity"></activity>
+        <activity android:name=".EditarClienteActivity" />
+        <activity android:name=".CadastrarProdutoActivity" />
+        <activity android:name=".ConsultarProdutoActivity"></activity>
     </application>
 
 </manifest>

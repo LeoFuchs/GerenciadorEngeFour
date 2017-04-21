@@ -43,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
     //CRIA A OPÇÕES DA NOSSA LISTA E ADICIONA AO LISTVIEW DA NOSSA TELA.
     protected  void CarregaOpcoesLista(){
 
-        String[] itens = new String[2];
+        String[] itens = new String[4];
 
         itens[0] = "Cadastrar Novo Cliente";
         itens[1] = "Consultar Clientes";
+        itens[2] = "Cadastrar Novo Produto";
+        itens[3] = "Consultar Produtos";
 
         ArrayAdapter<String> arrayItens = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,itens);
 
@@ -76,13 +78,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intentRedirecionar;
 
         if(opcaoMenu.equals("Cadastrar Novo Cliente")){
-
             intentRedirecionar = new Intent(this, CadastrarClienteActivity.class);
             startActivity(intentRedirecionar);
             finish();
         }
         else if(opcaoMenu.equals("Consultar Clientes")){
             intentRedirecionar = new Intent(this, ConsultarClienteActivity.class);
+            startActivity(intentRedirecionar);
+            finish();
+        }
+        else if(opcaoMenu.equals("Cadastrar Novo Produto")){
+            intentRedirecionar = new Intent(this, CadastrarProdutoActivity.class);
             startActivity(intentRedirecionar);
             finish();
         }

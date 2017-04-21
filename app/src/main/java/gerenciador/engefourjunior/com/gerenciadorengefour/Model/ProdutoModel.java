@@ -1,11 +1,9 @@
 package gerenciador.engefourjunior.com.gerenciadorengefour.Model;
 
-
-public class ClienteModel {
+public class ProdutoModel {
     private Integer codigo;
     private String  nome;
-    private String  email;
-    private String  telefone;
+    private String  valor;
 
 
     public Integer getCodigo() {
@@ -24,20 +22,12 @@ public class ClienteModel {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
+    public String getValor() {
+        return valor;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
 }
-

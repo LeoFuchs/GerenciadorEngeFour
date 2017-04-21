@@ -4,16 +4,16 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DataBaseCliente extends SQLiteOpenHelper {
+public class DataBase extends SQLiteOpenHelper {
 
     //NOME DA BASE DE DADOS
-    private static final String NOME_BASE_DE_DADOS   = "BancoClientes.db";
+    private static final String NOME_BASE_DE_DADOS   = "Banco.db";
 
     //VERSÃO DO BANCO DE DADOS
-    private static final int    VERSAO_BASE_DE_DADOS = 1;
+    private static final int    VERSAO_BASE_DE_DADOS = 2;
 
     //CONSTRUTOR
-    public DataBaseCliente(Context context){
+    public DataBase(Context context){
 
         super(context,NOME_BASE_DE_DADOS,null,VERSAO_BASE_DE_DADOS);
     }
@@ -32,6 +32,15 @@ public class DataBaseCliente extends SQLiteOpenHelper {
 
         db.execSQL(stringBuilderCreateTable.toString());
 
+        StringBuilder stringBuilderCreateTable2 = new StringBuilder();
+
+        stringBuilderCreateTable2.append(" CREATE TABLE tb_produto (");
+        stringBuilderCreateTable2.append("        id_produto     INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTable2.append("        ds_nome        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        ds_valor       TEXT    NOT NULL )           ");
+
+        db.execSQL(stringBuilderCreateTable2.toString());
+
     }
 
     /*SE TROCAR A VERSÃO DO BANCO DE DADOS VOCÊ PODE EXECUTAR ALGUMA ROTINA
@@ -40,6 +49,7 @@ public class DataBaseCliente extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS tb_cliente");
+        db.execSQL("DROP TABLE IF EXISTS tb_produto");
         onCreate(db);
 
     }

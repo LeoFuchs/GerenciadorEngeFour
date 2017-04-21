@@ -5,5 +5,6 @@
     <string name="nome_obrigatorio">O nome é de preenchimento obrigatório!</string>
     <string name="telefone_obigatorio">O telefone é de preenchimento obrigatório!</string>
     <string name="email_obrigatorio">O email é de preenchimento obrigatório!</string>
+    <string name="valor_obrigatorio">O valor é de preenchimento obrigatório!</string>
     <string name="registro_salvo_sucesso">Registro salvo com sucesso!</string>
 </resources>
