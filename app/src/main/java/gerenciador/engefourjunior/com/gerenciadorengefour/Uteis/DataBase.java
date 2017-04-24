@@ -10,7 +10,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String NOME_BASE_DE_DADOS   = "Banco.db";
 
     //VERSÃO DO BANCO DE DADOS
-    private static final int    VERSAO_BASE_DE_DADOS = 7;
+    private static final int    VERSAO_BASE_DE_DADOS = 8;
 
     //CONSTRUTOR
     public DataBase(Context context){
@@ -48,8 +48,10 @@ public class DataBase extends SQLiteOpenHelper {
         stringBuilderCreateTable3.append("        ds_quantidade     INTEGER    NOT NULL,            ");
         stringBuilderCreateTable3.append("        ds_valor_total    INTEGER    NOT NULL,            ");
         stringBuilderCreateTable3.append("        ds_saldo          INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        id_cliente        INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        id_produto        INTEGER    NOT NULL,            ");
         stringBuilderCreateTable3.append("        FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente),");
-        stringBuilderCreateTable3.append("        FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto))");
+        stringBuilderCreateTable3.append("        FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto) )");
 
         db.execSQL(stringBuilderCreateTable3.toString());
 
@@ -62,6 +64,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS tb_cliente");
         db.execSQL("DROP TABLE IF EXISTS tb_produto");
+        db.execSQL("DROP TABLE IF EXISTS tb_venda");
         onCreate(db);
 
     }
