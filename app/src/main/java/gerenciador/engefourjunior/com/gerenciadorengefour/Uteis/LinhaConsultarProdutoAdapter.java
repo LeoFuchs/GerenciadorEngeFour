@@ -19,9 +19,6 @@ import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ProdutoModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.R;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ProdutoRepository;
 
-/**
- * Created by Leo on 20/04/2017.
- */
 public class LinhaConsultarProdutoAdapter extends BaseAdapter {
 
     //CRIANDO UM OBJETO LayoutInflater PARA FAZER LINK A NOSSA VIEW(activity_linha_consultar.xml)

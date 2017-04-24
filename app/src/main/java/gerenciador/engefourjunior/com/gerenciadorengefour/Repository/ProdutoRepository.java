@@ -82,7 +82,7 @@ public class ProdutoRepository {
         //ADICIONANDO OS DADOS DA PESSOA
         pessoaModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_produto")));
         pessoaModel.setNome(cursor.getString(cursor.getColumnIndex("ds_nome")));
-        pessoaModel.setValor(cursor.getString(cursor.getColumnIndex("ds_valor")));
+        pessoaModel.setValor(cursor.getFloat(cursor.getColumnIndex("ds_valor")));
 
         //RETORNANDO A PESSOA
         return pessoaModel;
@@ -121,7 +121,7 @@ public class ProdutoRepository {
             //ADICIONANDO OS DADOS DA PESSOA
             pessoaModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_produto")));
             pessoaModel.setNome(cursor.getString(cursor.getColumnIndex("ds_nome")));
-            pessoaModel.setValor(cursor.getString(cursor.getColumnIndex("ds_valor")));
+            pessoaModel.setValor(cursor.getFloat(cursor.getColumnIndex("ds_valor")));
 
             //ADICIONANDO UMA PESSOA NA LISTA
             pessoas.add(pessoaModel);

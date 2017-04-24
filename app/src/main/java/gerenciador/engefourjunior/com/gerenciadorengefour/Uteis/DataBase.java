@@ -10,7 +10,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String NOME_BASE_DE_DADOS   = "Banco.db";
 
     //VERSÃO DO BANCO DE DADOS
-    private static final int    VERSAO_BASE_DE_DADOS = 2;
+    private static final int    VERSAO_BASE_DE_DADOS = 3;
 
     //CONSTRUTOR
     public DataBase(Context context){
@@ -37,7 +37,7 @@ public class DataBase extends SQLiteOpenHelper {
         stringBuilderCreateTable2.append(" CREATE TABLE tb_produto (");
         stringBuilderCreateTable2.append("        id_produto     INTEGER PRIMARY KEY AUTOINCREMENT, ");
         stringBuilderCreateTable2.append("        ds_nome        TEXT    NOT NULL,            ");
-        stringBuilderCreateTable2.append("        ds_valor       TEXT    NOT NULL )           ");
+        stringBuilderCreateTable2.append("        ds_valor       FLOAT    NOT NULL )           ");
 
         db.execSQL(stringBuilderCreateTable2.toString());
 

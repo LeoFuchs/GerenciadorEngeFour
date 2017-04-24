@@ -3,7 +3,7 @@ package gerenciador.engefourjunior.com.gerenciadorengefour.Model;
 public class ProdutoModel {
     private Integer codigo;
     private String  nome;
-    private String  valor;
+    private Float  valor;
 
 
     public Integer getCodigo() {
@@ -22,11 +22,11 @@ public class ProdutoModel {
         this.nome = nome;
     }
 
-    public String getValor() {
+    public Float getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Float valor) {
         this.valor = valor;
     }
 
