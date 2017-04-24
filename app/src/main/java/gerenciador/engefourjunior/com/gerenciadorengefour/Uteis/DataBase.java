@@ -41,6 +41,18 @@ public class DataBase extends SQLiteOpenHelper {
 
         db.execSQL(stringBuilderCreateTable2.toString());
 
+        StringBuilder stringBuilderCreateTable3 = new StringBuilder();
+
+        stringBuilderCreateTable3.append(" CREATE TABLE tb_venda (");
+        stringBuilderCreateTable3.append("        id_venda          INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTable3.append("        ds_quantidade     INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        ds_valor_total    INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        ds_saldo          INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente),");
+        stringBuilderCreateTable3.append("        FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto))");
+
+        db.execSQL(stringBuilderCreateTable3.toString());
+
     }
 
     /*SE TROCAR A VERSÃO DO BANCO DE DADOS VOCÊ PODE EXECUTAR ALGUMA ROTINA
