@@ -108,7 +108,7 @@ public class EditarProdutoActivity extends AppCompatActivity {
             pessoaModel.setNome(editTextNome.getText().toString().trim());
 
             /*SETANDO O VALOR DO CAMPO VALOR*/
-            pessoaModel.setValor(Float.parseFloat(editTextCodigo.getText().toString()));
+            pessoaModel.setValor(Float.parseFloat(editTextValor.getText().toString()));
 
             /*ALTERANDO O REGISTRO*/
             new ProdutoRepository(this).Atualizar(pessoaModel);
