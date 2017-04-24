@@ -10,7 +10,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String NOME_BASE_DE_DADOS   = "Banco.db";
 
     //VERSÃO DO BANCO DE DADOS
-    private static final int    VERSAO_BASE_DE_DADOS = 3;
+    private static final int    VERSAO_BASE_DE_DADOS = 5;
 
     //CONSTRUTOR
     public DataBase(Context context){

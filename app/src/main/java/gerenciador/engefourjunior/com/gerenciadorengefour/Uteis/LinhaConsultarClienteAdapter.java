@@ -103,7 +103,7 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
                 pessoaRepository.Excluir(pessoaModels.get(position).getCodigo());
 
                 //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Registro excluido com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(consultarActivity, "Registro excluidox com sucesso!", Toast.LENGTH_LONG).show();
 
                 //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
                 AtualizarLista();

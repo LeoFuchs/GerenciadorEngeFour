@@ -76,10 +76,10 @@ public class ProdutoRepository {
 
         cursor.moveToFirst();
 
-        ///CRIANDO UMA NOVA PESSOAS
+        ///CRIANDO UMA NOVA PRODUTO
         ProdutoModel pessoaModel =  new ProdutoModel();
 
-        //ADICIONANDO OS DADOS DA PESSOA
+        //ADICIONANDO OS DADOS DO PRODUTO
         pessoaModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_produto")));
         pessoaModel.setNome(cursor.getString(cursor.getColumnIndex("ds_nome")));
         pessoaModel.setValor(cursor.getFloat(cursor.getColumnIndex("ds_valor")));

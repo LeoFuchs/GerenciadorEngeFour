@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gerenciador.engefourjunior.com.gerenciadorengefour.ConsultarProdutoActivity;
-import gerenciador.engefourjunior.com.gerenciadorengefour.EditarClienteActivity;
+import gerenciador.engefourjunior.com.gerenciadorengefour.EditarProdutoActivity;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ProdutoModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.R;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ProdutoRepository;
@@ -75,7 +75,6 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
         //CAMPO QUE VAI MOSTRAR O VALOR DO PRODUTO
         TextView textViewValor        = (TextView) viewLinhaLista.findViewById(R.id.textViewValor);
 
-
         //CRIANDO O BOTÃO  EXCLUIR PARA DELETARMOS UM REGISTRO DO BANCO DE DADOS
         Button buttonExcluir             = (Button)   viewLinhaLista.findViewById(R.id.buttonExcluir);
 
@@ -85,7 +84,7 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
         //SETANDO O NOME NO CAMPO DA NOSSA VIEW
         textViewNome.setText(pessoaModels.get(position).getNome());
 
-        //SETANDO O EMAIL NO CAMPO DA NOSSA VIEW
+        //SETANDO O VALOR NO CAMPO DA NOSSA VIEW
         textViewValor.setText(pessoaModels.get(position).getValor() + " Reais");
 
         //CRIANDO EVENTO CLICK PARA O BOTÃO DE EXCLUIR REGISTRO
@@ -98,7 +97,7 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
                 pessoaRepository.Excluir(pessoaModels.get(position).getCodigo());
 
                 //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Registro excluido com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(consultarActivity, "Registro excluidoSSSS com sucesso!", Toast.LENGTH_LONG).show();
 
                 //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
                 AtualizarLista();
@@ -112,7 +111,7 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                Intent intentRedirecionar = new Intent(consultarActivity, EditarClienteActivity.class);
+                Intent intentRedirecionar = new Intent(consultarActivity, EditarProdutoActivity.class);
 
                 intentRedirecionar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

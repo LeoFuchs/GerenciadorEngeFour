@@ -36,7 +36,7 @@ public class EditarClienteActivity extends AppCompatActivity {
         this.CriarEventos();
 
         //CARREGA OS VALORES NOS CAMPOS DA TELA.
-        this.CarregaValoresCampos();
+            this.CarregaValoresCampos();
     }
 
     //VINCULA OS COMPONENTES DA TELA(VIEW) AOS OBJETOS DECLARADOS.
@@ -122,7 +122,6 @@ public class EditarClienteActivity extends AppCompatActivity {
 
              /*SETANDO O TELEFONE*/
             pessoaModel.setTelefone(editTextTelefone.getText().toString().trim());
-
 
             /*ALTERANDO O REGISTRO*/
             new ClienteRepository(this).Atualizar(pessoaModel);
