@@ -43,9 +43,9 @@ public class EditarProdutoActivity extends AppCompatActivity {
 
         editTextCodigo         = (EditText) this.findViewById(R.id.editTextCodigo);
 
-        editTextNome           = (EditText) this.findViewById(R.id.editTextNome);
+        editTextNome           = (EditText) this.findViewById(R.id.editTextProduto);
 
-        editTextValor           = (EditText) this.findViewById(R.id.editTextValor);
+        editTextValor           = (EditText) this.findViewById(R.id.editTextCliente);
 
         buttonAlterar           = (Button) this.findViewById(R.id.buttonAlterar);
 
@@ -153,6 +153,7 @@ public class EditarProdutoActivity extends AppCompatActivity {
 
         //SETA O CÓDIGO NA VIEW
         editTextCodigo.setText(String.valueOf(pessoaModel.getCodigo()));
+        editTextCodigo.setEnabled(false);
 
         //SETA O NOME NA VIEW
         editTextNome.setText(pessoaModel.getNome());

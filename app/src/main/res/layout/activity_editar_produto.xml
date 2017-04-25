@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nome:"
-            android:id="@+id/textViewNome"
+            android:id="@+id/textViewProduto"
             android:layout_marginTop="15dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="20dp"
@@ -39,10 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:id="@+id/editTextNome"
-            android:layout_below="@+id/textViewNome"
-            android:layout_alignLeft="@+id/textViewNome"
-            android:layout_alignStart="@+id/textViewNome"
+            android:id="@+id/editTextProduto"
+            android:layout_below="@+id/textViewProduto"
+            android:layout_alignLeft="@+id/textViewProduto"
+            android:layout_alignStart="@+id/textViewProduto"
             android:layout_marginRight="20dp"/>
 
         <TextView
@@ -50,21 +50,21 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Valor:"
-            android:id="@+id/textViewValor"
+            android:id="@+id/textViewCliente"
             android:layout_marginTop="80dp"
             android:layout_alignParentTop="true"
-            android:layout_below="@+id/editTextNome"
-            android:layout_alignLeft="@+id/textViewNome"
-            android:layout_alignStart="@+id/textViewNome" />
+            android:layout_below="@+id/editTextProduto"
+            android:layout_alignLeft="@+id/textViewProduto"
+            android:layout_alignStart="@+id/textViewProduto" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:id="@+id/editTextValor"
-            android:layout_below="@+id/textViewValor"
-            android:layout_alignLeft="@+id/textViewValor"
-            android:layout_alignStart="@+id/textViewValor"
+            android:id="@+id/editTextCliente"
+            android:layout_below="@+id/textViewCliente"
+            android:layout_alignLeft="@+id/textViewCliente"
+            android:layout_alignStart="@+id/textViewCliente"
             android:layout_marginRight="20dp"
             />
 
@@ -74,7 +74,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Código:"
             android:id="@+id/textViewCodigo"
-            android:layout_below="@+id/editTextValor"
+            android:layout_below="@+id/editTextCliente"
             android:layout_alignLeft="@+id/editTextCodigo"
             android:layout_alignStart="@+id/editTextCodigo"
             android:layout_marginRight="20dp"/>

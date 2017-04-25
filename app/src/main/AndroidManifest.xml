@@ -20,7 +20,8 @@
         <activity android:name=".EditarClienteActivity" />
         <activity android:name=".CadastrarProdutoActivity" />
         <activity android:name=".ConsultarProdutoActivity" />
-        <activity android:name=".EditarProdutoActivity"></activity>
+        <activity android:name=".EditarProdutoActivity" />
+        <activity android:name=".CadastrarVendaActivity"></activity>
     </application>
 
 </manifest>

@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nome:"
-        android:id="@+id/textViewNome"
+        android:id="@+id/textViewProduto"
         android:layout_marginTop="15dp"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
@@ -39,10 +39,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:id="@+id/editTextNome"
-        android:layout_below="@+id/textViewNome"
-        android:layout_alignLeft="@+id/textViewNome"
-        android:layout_alignStart="@+id/textViewNome"
+        android:id="@+id/editTextProduto"
+        android:layout_below="@+id/textViewProduto"
+        android:layout_alignLeft="@+id/textViewProduto"
+        android:layout_alignStart="@+id/textViewProduto"
         android:layout_marginRight="20dp"/>
 
     <TextView
@@ -53,9 +53,9 @@
         android:id="@+id/textViewEmail"
         android:layout_marginTop="80dp"
         android:layout_alignParentTop="true"
-        android:layout_below="@+id/editTextNome"
-        android:layout_alignLeft="@+id/textViewNome"
-        android:layout_alignStart="@+id/textViewNome" />
+        android:layout_below="@+id/editTextProduto"
+        android:layout_alignLeft="@+id/textViewProduto"
+        android:layout_alignStart="@+id/textViewProduto" />
 
     <EditText
         android:layout_width="match_parent"

@@ -44,7 +44,7 @@ public class EditarClienteActivity extends AppCompatActivity {
 
         editTextCodigo         = (EditText) this.findViewById(R.id.editTextCodigo);
 
-        editTextNome           = (EditText) this.findViewById(R.id.editTextNome);
+        editTextNome           = (EditText) this.findViewById(R.id.editTextProduto);
 
         editTextEmail           = (EditText) this.findViewById(R.id.editTextEmail);
 
@@ -166,6 +166,7 @@ public class EditarClienteActivity extends AppCompatActivity {
 
         //SETA O CÓDIGO NA VIEW
         editTextCodigo.setText(String.valueOf(pessoaModel.getCodigo()));
+        editTextCodigo.setEnabled(false);
 
         //SETA O NOME NA VIEW
         editTextNome.setText(pessoaModel.getNome());

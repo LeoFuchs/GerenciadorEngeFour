@@ -40,7 +40,7 @@ public class CadastrarClienteActivity extends AppCompatActivity {
     //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
     protected  void CriarComponentes(){
 
-        editTextNome           = (EditText) this.findViewById(R.id.editTextNome);
+        editTextNome           = (EditText) this.findViewById(R.id.editTextProduto);
 
         editTextEmail           = (EditText) this.findViewById(R.id.editTextEmail);
 

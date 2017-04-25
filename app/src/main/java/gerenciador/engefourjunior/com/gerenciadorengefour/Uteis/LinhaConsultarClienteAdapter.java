@@ -70,7 +70,7 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
 
         //CAMPO QUE VAI MOSTRAR O NOME DA PESSOA
-        TextView textViewNome            = (TextView) viewLinhaLista.findViewById(R.id.textViewNome);
+        TextView textViewNome            = (TextView) viewLinhaLista.findViewById(R.id.textViewProduto);
 
         //CAMPO QUE VAI MOSTRAR O ENDEREÇO DA PESSOA
         TextView textViewEmail        = (TextView) viewLinhaLista.findViewById(R.id.textViewEmail);
@@ -103,7 +103,7 @@ public class LinhaConsultarClienteAdapter extends BaseAdapter {
                 pessoaRepository.Excluir(pessoaModels.get(position).getCodigo());
 
                 //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Registro excluidox com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(consultarActivity, "Registro excluido com sucesso!", Toast.LENGTH_LONG).show();
 
                 //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
                 AtualizarLista();

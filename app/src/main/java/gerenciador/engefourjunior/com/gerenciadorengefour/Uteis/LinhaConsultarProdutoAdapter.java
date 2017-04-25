@@ -70,10 +70,10 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
 
         //CAMPO QUE VAI MOSTRAR O NOME DO PRODUTO
-        TextView textViewNome            = (TextView) viewLinhaLista.findViewById(R.id.textViewNome);
+        TextView textViewNome            = (TextView) viewLinhaLista.findViewById(R.id.textViewProduto);
 
         //CAMPO QUE VAI MOSTRAR O VALOR DO PRODUTO
-        TextView textViewValor        = (TextView) viewLinhaLista.findViewById(R.id.textViewValor);
+        TextView textViewValor        = (TextView) viewLinhaLista.findViewById(R.id.textViewCliente);
 
         //CRIANDO O BOTÃO  EXCLUIR PARA DELETARMOS UM REGISTRO DO BANCO DE DADOS
         Button buttonExcluir             = (Button)   viewLinhaLista.findViewById(R.id.buttonExcluir);
@@ -97,7 +97,7 @@ public class LinhaConsultarProdutoAdapter extends BaseAdapter {
                 pessoaRepository.Excluir(pessoaModels.get(position).getCodigo());
 
                 //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Registro excluidoSSSS com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(consultarActivity, "Registro excluido com sucesso!", Toast.LENGTH_LONG).show();
 
                 //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
                 AtualizarLista();

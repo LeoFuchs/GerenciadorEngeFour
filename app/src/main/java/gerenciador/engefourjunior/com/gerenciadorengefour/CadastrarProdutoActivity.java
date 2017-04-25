@@ -38,9 +38,9 @@ public class CadastrarProdutoActivity  extends AppCompatActivity {
     //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
     protected  void CriarComponentes(){
 
-        editTextNome           = (EditText) this.findViewById(R.id.editTextNome);
+        editTextNome           = (EditText) this.findViewById(R.id.editTextProduto);
 
-        editTextValor           = (EditText) this.findViewById(R.id.editTextValor);
+        editTextValor           = (EditText) this.findViewById(R.id.editTextCliente);
 
         buttonSalvar           = (Button) this.findViewById(R.id.buttonSalvar);
 
