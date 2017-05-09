@@ -6,23 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="37dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Editar Cliente"
-            android:id="@+id/textView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.72">
+        android:layout_weight="0.91">
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,38 +20,39 @@
         android:layout_marginLeft="20dp"
          />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextProduto"
-        android:layout_below="@+id/textViewProduto"
-        android:layout_alignLeft="@+id/textViewProduto"
-        android:layout_alignStart="@+id/textViewProduto"
-        android:layout_marginRight="20dp"/>
+        <EditText
+            android:id="@+id/editTextProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewProduto"
+            android:layout_alignStart="@+id/textViewProduto"
+            android:layout_below="@+id/textViewProduto"
+            android:layout_marginRight="20dp"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email:"
-        android:id="@+id/textViewEmail"
-        android:layout_marginTop="80dp"
-        android:layout_alignParentTop="true"
-        android:layout_below="@+id/editTextProduto"
-        android:layout_alignLeft="@+id/textViewProduto"
-        android:layout_alignStart="@+id/textViewProduto" />
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewProduto"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textViewProduto"
+            android:layout_below="@+id/editTextProduto"
+            android:layout_marginTop="80dp"
+            android:text="Endereço:"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextEmail"
-        android:layout_below="@+id/textViewEmail"
-        android:layout_alignLeft="@+id/textViewEmail"
-        android:layout_alignStart="@+id/textViewEmail"
-        android:layout_marginRight="20dp"
-        />
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewEmail"
+            android:layout_alignStart="@+id/textViewEmail"
+            android:layout_below="@+id/textViewEmail"
+            android:layout_marginRight="20dp"
+            android:inputType="text"
+            android:singleLine="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,75 +65,36 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextTelefone"
-        android:layout_below="@+id/textViewTelefone"
-        android:layout_alignLeft="@+id/textViewTelefone"
-        android:layout_alignStart="@+id/textViewTelefone"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Código:"
-            android:id="@+id/textViewCodigo"
-            android:layout_below="@+id/editTextTelefone"
-            android:layout_alignLeft="@+id/editTextCodigo"
-            android:layout_alignStart="@+id/editTextCodigo"
-            android:layout_marginRight="20dp"/>
-
         <EditText
+            android:id="@+id/editTextTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:id="@+id/editTextCodigo"
-            android:layout_below="@+id/textViewCodigo"
-            android:layout_alignLeft="@+id/editTextTelefone"
-            android:layout_alignStart="@+id/editTextTelefone"
-            android:layout_marginRight="20dp"/>
+            android:layout_alignLeft="@+id/textViewTelefone"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@+id/textViewTelefone"
+            android:layout_below="@+id/textViewTelefone"
+            android:layout_marginRight="20dp"
+            android:inputType="phone"
+            android:singleLine="true" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_weight="0.21">
+        android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/buttonAlterar"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/voltar"
-            android:id="@+id/buttonVoltar"
-            android:background="@android:color/transparent"
-            android:textColor="#276bea"
-            android:typeface="monospace"
-            android:layout_marginLeft="45dp"
-            android:layout_marginStart="45dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
             android:text="Alterar"
-            android:id="@+id/buttonAlterar"
             android:textColor="#276bea"
-            android:typeface="monospace"
-            android:layout_marginRight="48dp"
-            android:layout_marginEnd="48dp"
-            android:layout_alignTop="@+id/buttonVoltar"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:typeface="monospace" />
 
     </RelativeLayout>
 

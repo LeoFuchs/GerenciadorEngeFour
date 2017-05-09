@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/textViewNomeCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:paddingLeft="8dp"
+            android:text="José da Silva"
+            android:textColor="#000000"
+            android:textSize="@dimen/abc_dialog_padding_material"
+            android:theme="@style/Base.Animation.AppCompat.Dialog"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewNomeCliente"
+            android:layout_alignStart="@+id/textViewNomeCliente"
+            android:layout_below="@+id/textViewNomeCliente"
+            android:layout_toLeftOf="@+id/phone_button"
+            android:layout_toStartOf="@+id/phone_button"
+            android:paddingLeft="10dp"
+            android:text="Rua Rodolfo Andrade Pinho, 64"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <ImageView
+            android:id="@+id/phone_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:clickable="true"
+            android:src="@drawable/phone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="21dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonExcluir"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Excluir"
+            android:textColor="#276bea"
+            android:typeface="monospace"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/buttonEditar"
+            android:layout_toEndOf="@+id/buttonEditar" />
+
+        <Button
+            android:id="@+id/buttonEditar"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@android:color/transparent"
+            android:text="Editar"
+            android:textColor="#276bea"
+            android:typeface="monospace"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
+</LinearLayout>

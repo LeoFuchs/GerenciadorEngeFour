@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.engefour.gerirvendas.MainActivity">
+    <item
+        android:id="@+id/nova_venda"
+        android:icon="@drawable/add"
+        android:title="@string/nova_venda" />
+    <group android:id="@+id/group_add">
+    <item
+    android:id="@+id/novo_cliente"
+        android:icon="@drawable/add"
+    android:title="@string/novo_cliente"
+    app:showAsAction="never"/>
+    <item
+        android:id="@+id/novo_produto"
+        android:icon="@drawable/add"
+        android:title="@string/novo_produto"
+        app:showAsAction="never"/>
+    </group>
+</menu>

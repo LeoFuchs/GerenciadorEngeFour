@@ -10,7 +10,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String NOME_BASE_DE_DADOS   = "Banco.db";
 
     //VERSÃO DO BANCO DE DADOS
-    private static final int    VERSAO_BASE_DE_DADOS = 8;
+    private static final int    VERSAO_BASE_DE_DADOS = 9;
 
     //CONSTRUTOR
     public DataBase(Context context){
@@ -26,7 +26,7 @@ public class DataBase extends SQLiteOpenHelper {
 
         stringBuilderCreateTable.append(" CREATE TABLE tb_cliente (");
         stringBuilderCreateTable.append("        id_cliente     INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTable.append("        ds_nome        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_nome        TEXT    NOT NULL     UNIQUE,            ");
         stringBuilderCreateTable.append("        ds_email       TEXT    NOT NULL,            ");
         stringBuilderCreateTable.append("        ds_telefone    TEXT    NOT NULL )           ");
 
@@ -35,8 +35,8 @@ public class DataBase extends SQLiteOpenHelper {
         StringBuilder stringBuilderCreateTable2 = new StringBuilder();
 
         stringBuilderCreateTable2.append(" CREATE TABLE tb_produto (");
-        stringBuilderCreateTable2.append("        id_produto     INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTable2.append("        ds_nome        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable2.append("        id_produto     INTEGER  PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTable2.append("        ds_nome        TEXT     NOT NULL     UNIQUE,            ");
         stringBuilderCreateTable2.append("        ds_valor       FLOAT    NOT NULL )           ");
 
         db.execSQL(stringBuilderCreateTable2.toString());
@@ -44,14 +44,15 @@ public class DataBase extends SQLiteOpenHelper {
         StringBuilder stringBuilderCreateTable3 = new StringBuilder();
 
         stringBuilderCreateTable3.append(" CREATE TABLE tb_venda (");
-        stringBuilderCreateTable3.append("        id_venda          INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTable3.append("        ds_quantidade     INTEGER    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        id_venda          INTEGER  PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTable3.append("        ds_quantidade     INTEGER  NOT NULL,            ");
         stringBuilderCreateTable3.append("        ds_valor_total    FLOAT    NOT NULL,            ");
+        stringBuilderCreateTable3.append("        ds_valor_pago     FLOAT    NOT NULL,            ");
         stringBuilderCreateTable3.append("        ds_saldo          FLOAT    NOT NULL,            ");
-        stringBuilderCreateTable3.append("        id_cliente        INTEGER    NOT NULL,            ");
-        stringBuilderCreateTable3.append("        id_produto        INTEGER    NOT NULL,            ");
-        stringBuilderCreateTable3.append("        FOREIGN KEY (id_cliente) REFERENCES tb_cliente(id_cliente),");
-        stringBuilderCreateTable3.append("        FOREIGN KEY (id_produto) REFERENCES tb_produto(id_produto) )");
+        stringBuilderCreateTable3.append("        ds_nome_cliente        TEXT  NOT NULL,            ");
+        stringBuilderCreateTable3.append("        ds_nome_produto        TEXT  NOT NULL,            ");
+        stringBuilderCreateTable3.append("        FOREIGN KEY    (ds_nome_cliente) REFERENCES tb_cliente(ds_nome),");
+        stringBuilderCreateTable3.append("        FOREIGN KEY    (ds_nome_produto) REFERENCES tb_produto(ds_nome) )");
 
         db.execSQL(stringBuilderCreateTable3.toString());
 

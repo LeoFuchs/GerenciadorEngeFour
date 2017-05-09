@@ -1,4 +1,8 @@
 <resources>
+    <string name="action_list">Nova Venda</string>
+    <string name="nova_venda">Nova Venda</string>
+    <string name="novo_cliente">Novo Cliente</string>
+    <string name="novo_produto">Novo Produto</string>
     <string name="app_name">Gerenciador de Vendas</string>
     <string name="salvar">Salvar</string>
     <string name="voltar">Voltar</string>
@@ -7,4 +11,11 @@
     <string name="email_obrigatorio">O email é de preenchimento obrigatório!</string>
     <string name="valor_obrigatorio">O valor é de preenchimento obrigatório!</string>
     <string name="registro_salvo_sucesso">Registro salvo com sucesso!</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="alerta_venda">Necessário ao menos um cliente e um produto.</string>
+    <string name="alerta_cliente">Já existe um cliente com esse nome. Escolha outro nome</string>
+    <string name="alerta_produto">Já existe um produto com esse nome. Escolha outro nome</string>
+    <string name="editar_venda">Editar Venda</string>
+    <string name="editar_produto">Editar Produto</string>
+    <string name="editar_cliente">Editar Cliente</string>
 </resources>

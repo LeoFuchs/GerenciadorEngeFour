@@ -2,10 +2,12 @@ package gerenciador.engefourjunior.com.gerenciadorengefour;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,21 +15,23 @@ import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ClienteModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ClienteRepository;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Uteis.Alerta;
 
-public class CadastrarClienteActivity extends AppCompatActivity {
+public class NovoCliente extends AppCompatActivity {
 
 
     /*COMPONENTES DA TELA*/
-    EditText         editTextNome;
-    EditText         editTextEmail;
-    EditText         editTextTelefone;
-    Button           buttonSalvar;
-    Button           buttonVoltar;
+    EditText editTextNome;
+    EditText editTextEmail;
+    EditText editTextTelefone;
+    Button buttonSalvar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_cliente);
+        setContentView(R.layout.activity_novo_cliente);
 
 
         //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
@@ -35,6 +39,14 @@ public class CadastrarClienteActivity extends AppCompatActivity {
 
         //CRIA OS EVENTOS DOS COMPONENTES
         this.CriarEventos();
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+        this.finish();
+
     }
 
     //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
@@ -48,11 +60,13 @@ public class CadastrarClienteActivity extends AppCompatActivity {
 
         buttonSalvar           = (Button) this.findViewById(R.id.buttonSalvar);
 
-        buttonVoltar           = (Button) this.findViewById(R.id.buttonVoltar);
-
     }
     //CRIA OS EVENTOS DOS COMPONENTES
     protected  void CriarEventos(){
+
+        editTextEmail.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        editTextNome.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        editTextTelefone.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         //CRIANDO EVENTO NO BOTÃO SALVAR
         buttonSalvar.setOnClickListener(new View.OnClickListener(){
@@ -64,17 +78,6 @@ public class CadastrarClienteActivity extends AppCompatActivity {
             }
         });
 
-        //CRIANDO EVENTO NO BOTÃO VOLTAR
-        buttonVoltar.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-                Intent intentMainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentMainActivity);
-                finish();
-            }
-        });
     }
 
     //VALIDA OS CAMPOS E SALVA AS INFORMAÇÕES NO BANCO DE DADOS
@@ -100,50 +103,52 @@ public class CadastrarClienteActivity extends AppCompatActivity {
             editTextTelefone.requestFocus();
         }
 
-        else{
-
+        else {
+            if (new ClienteRepository(this).cliente_existe(editTextNome.getText().toString().trim()))
+                Alerta.Alert(this, this.getString(R.string.alerta_cliente));
+            else {
             /*CRIANDO UM OBJETO PESSOA*/
-            ClienteModel pessoaModel = new ClienteModel();
+                ClienteModel pessoaModel = new ClienteModel();
 
             /*SETANDO O VALOR DO CAMPO NOME*/
-            pessoaModel.setNome(editTextNome.getText().toString().trim());
+                pessoaModel.setNome(editTextNome.getText().toString().trim());
 
             /*SETANDO O VALOR DO CAMPO EMAIL*/
-            pessoaModel.setEmail(editTextEmail.getText().toString().trim());
+                pessoaModel.setEmail(editTextEmail.getText().toString().trim());
 
             /*SETANDO O VALOR DO CAMPO TELEFONE*/
-            pessoaModel.setTelefone(editTextTelefone.getText().toString().trim());
+                pessoaModel.setTelefone(editTextTelefone.getText().toString().trim());
 
             /*SALVANDO UM NOVO REGISTRO*/
-            new ClienteRepository(this).Salvar(pessoaModel);
+                new ClienteRepository(this).Salvar(pessoaModel);
 
             /*MENSAGEM DE SUCESSO!*/
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
-            //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA
-            alertDialog.setTitle(R.string.app_name);
+                //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA
+                alertDialog.setTitle(R.string.app_name);
 
-            //MENSAGEM A SER EXIBIDA
-            alertDialog.setMessage("Cliente cadastrado com sucesso! ");
+                //MENSAGEM A SER EXIBIDA
+                alertDialog.setMessage("Cliente cadastrado com sucesso! ");
 
-            //CRIA UM BOTÃO COM O TEXTO OK SEM AÇÃO
-            alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
+                //CRIA UM BOTÃO COM O TEXTO OK SEM AÇÃO
+                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
 
-                    //RETORNA PARA A TELA DE CONSULTA
-                    Intent intentRedirecionar = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intentRedirecionar);
-                    finish();
-                }
-            });
+                        //RETORNA PARA A TELA DE CONSULTA
+                        Intent intentRedirecionar = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intentRedirecionar);
+                        finish();
+                    }
+                });
 
-            //MOSTRA A MENSAGEM NA TELA
-            alertDialog.show();
+                //MOSTRA A MENSAGEM NA TELA
+                alertDialog.show();
 
-            LimparCampos();
+                LimparCampos();
+            }
         }
-
 
     }
 

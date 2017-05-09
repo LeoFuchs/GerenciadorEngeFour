@@ -6,23 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="37dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Cadastrar Produto"
-            android:id="@+id/textView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.72">
+        android:layout_weight="0.96">
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,52 +43,33 @@
             android:layout_alignStart="@+id/textViewProduto" />
 
         <EditText
+            android:id="@+id/editTextCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:id="@+id/editTextCliente"
-            android:layout_below="@+id/textViewCliente"
             android:layout_alignLeft="@+id/textViewCliente"
             android:layout_alignStart="@+id/textViewCliente"
+            android:layout_below="@+id/textViewCliente"
             android:layout_marginRight="20dp"
-            />
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_weight="0.35">
+        android:layout_height="wrap_content">
 
         <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/voltar"
-            android:id="@+id/buttonVoltar"
-            android:background="@android:color/transparent"
-            android:textColor="#276bea"
-            android:typeface="monospace"
-            android:layout_marginLeft="45dp"
-            android:layout_marginStart="45dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Salvar"
             android:id="@+id/buttonSalvar"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:text="Salvar Produto"
             android:textColor="#276bea"
-            android:typeface="monospace"
-            android:layout_marginRight="48dp"
-            android:layout_marginEnd="48dp"
-            android:layout_alignTop="@+id/buttonVoltar"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:typeface="monospace" />
 
     </RelativeLayout>
 

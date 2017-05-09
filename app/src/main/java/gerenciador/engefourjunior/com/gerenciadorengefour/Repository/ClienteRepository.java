@@ -10,6 +10,9 @@ import java.util.List;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ClienteModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Uteis.DataBase;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class ClienteRepository {
 
     DataBase databaseUtil;
@@ -94,6 +97,17 @@ public class ClienteRepository {
         return pessoaModel;
     }
 
+    public boolean cliente_existe(String nome_cliente){
+
+        boolean cliente_existe = TRUE;
+        Cursor cursor =  databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_cliente WHERE ds_nome= '"+ nome_cliente+"'",null);
+        cursor.moveToFirst();
+        if(cursor.isAfterLast())
+            cliente_existe = FALSE;
+
+        return cliente_existe;
+    }
+
     /***
      * CONSULTA TODAS AS PESSOAS CADASTRADAS NA BASE
      * @return
@@ -143,5 +157,44 @@ public class ClienteRepository {
         return pessoas;
 
     }
+
+    public List<String> SelecionarNomes(){
+
+        List<String> pessoas = new ArrayList<String>();
+
+        //MONTA A QUERY A SER EXECUTADA
+        StringBuilder stringBuilderQuery = new StringBuilder();
+        stringBuilderQuery.append(" SELECT ds_nome      ");
+        stringBuilderQuery.append("  FROM  tb_cliente       ");
+
+        //CONSULTANDO OS REGISTROS CADASTRADOS
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
+
+        /*POSICIONA O CURSOR NO PRIMEIRO REGISTRO*/
+        cursor.moveToFirst();
+
+
+        String NomePessoa;
+
+        //REALIZA A LEITURA DOS REGISTROS ENQUANTO NÃO FOR O FIM DO CURSOR
+        while (!cursor.isAfterLast()){
+
+            /* CRIANDO UMA NOVA PESSOAS */
+            NomePessoa =  new String();
+
+            //ADICIONANDO OS DADOS DA PESSOA
+            NomePessoa=cursor.getString(cursor.getColumnIndex("ds_nome"));
+
+            //ADICIONANDO UMA PESSOA NA LISTA
+            pessoas.add(NomePessoa);
+
+            //VAI PARA O PRÓXIMO REGISTRO
+            cursor.moveToNext();
+        }
+
+        //RETORNANDO A LISTA DE PESSOAS
+        return pessoas;
+    }
+
 }
 

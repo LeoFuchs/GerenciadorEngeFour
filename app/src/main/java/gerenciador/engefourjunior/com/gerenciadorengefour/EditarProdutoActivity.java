@@ -2,28 +2,35 @@ package gerenciador.engefourjunior.com.gerenciadorengefour;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 
 import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ProdutoModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.ProdutoRepository;
+import gerenciador.engefourjunior.com.gerenciadorengefour.Repository.VendaRepository;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Uteis.Alerta;
+
 
 public class EditarProdutoActivity extends AppCompatActivity {
 
     /*COMPONENTES DA TELA*/
-    EditText         editTextCodigo;
-    EditText         editTextNome;
-    EditText         editTextValor;
-    Button           buttonAlterar;
-    Button           buttonVoltar;
+    EditText editTextNome;
+    EditText editTextValor;
+    Button buttonAlterar;
+    public int id_pessoa;
+    public String nome_antigo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_produto);
 
@@ -41,7 +48,6 @@ public class EditarProdutoActivity extends AppCompatActivity {
     //VINCULA OS COMPONENTES DA TELA(VIEW) AOS OBJETOS DECLARADOS.
     protected  void CriarComponentes(){
 
-        editTextCodigo         = (EditText) this.findViewById(R.id.editTextCodigo);
 
         editTextNome           = (EditText) this.findViewById(R.id.editTextProduto);
 
@@ -49,35 +55,30 @@ public class EditarProdutoActivity extends AppCompatActivity {
 
         buttonAlterar           = (Button) this.findViewById(R.id.buttonAlterar);
 
-        buttonVoltar           = (Button) this.findViewById(R.id.buttonVoltar);
-
     }
 
     //MÉTODO CRIA OS EVENTOS PARA OS COMPONENTES
     protected  void CriarEventos(){
 
+        editTextNome.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        editTextValor.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         //CRIANDO EVENTO CLICK PARA O BOTÃO ALTERAR
         buttonAlterar.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-
                 Alterar_onClick();
             }
         });
+    }
 
-        //CRIANDO EVENTO CLICK PARA O BOTÃO VOLTAR
-        buttonVoltar.setOnClickListener(new View.OnClickListener(){
+    @Override
+    public void onBackPressed(){
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+        this.finish();
 
-            @Override
-            public void onClick(View v) {
-
-                Intent intentMainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentMainActivity);
-                finish();
-            }
-        });
     }
 
     //ALTERA UM REGISTRO
@@ -98,44 +99,49 @@ public class EditarProdutoActivity extends AppCompatActivity {
 
         }
         else{
-
+            String nome_atual = editTextNome.getText().toString().trim();
+            if ( !(nome_atual.equals(nome_antigo)) && new ProdutoRepository(this).produto_existe(nome_atual))
+                Alerta.Alert(this, this.getString(R.string.alerta_produto));
+            else {
+                VendaRepository vendaRepository = new VendaRepository(this);
+                vendaRepository.AtualizarProduto(nome_antigo, nome_atual);
             /*CRIANDO UM OBJETO PESSOA*/
-            ProdutoModel pessoaModel = new ProdutoModel();
+                ProdutoModel pessoaModel = new ProdutoModel();
 
-            pessoaModel.setCodigo(Integer.parseInt(editTextCodigo.getText().toString()));
-
+                pessoaModel.setCodigo(id_pessoa);
             /*SETANDO O VALOR DO CAMPO NOME*/
-            pessoaModel.setNome(editTextNome.getText().toString().trim());
+                pessoaModel.setNome(nome_atual);
 
             /*SETANDO O VALOR DO CAMPO VALOR*/
-            pessoaModel.setValor(Float.parseFloat(editTextValor.getText().toString()));
+                pessoaModel.setValor(Float.parseFloat(editTextValor.getText().toString()));
 
             /*ALTERANDO O REGISTRO*/
-            new ProdutoRepository(this).Atualizar(pessoaModel);
+                new ProdutoRepository(this).Atualizar(pessoaModel);
 
             /*MENSAGEM DE SUCESSO!*/
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
-            //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA
-            alertDialog.setTitle(R.string.app_name);
+                //ADICIONANDO UM TITULO A NOSSA MENSAGEM DE ALERTA
+                alertDialog.setTitle(R.string.app_name);
 
-            //MENSAGEM A SER EXIBIDA
-            alertDialog.setMessage("Registro alterado com sucesso! ");
+                //MENSAGEM A SER EXIBIDA
+                alertDialog.setMessage("Registro alterado com sucesso! ");
 
-            //CRIA UM BOTÃO COM O TEXTO OK SEM AÇÃO
-            alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int id) {
+                //CRIA UM BOTÃO COM O TEXTO OK SEM AÇÃO
+                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
 
-                    //RETORNA PARA A TELA DE CONSULTA
-                    Intent intentRedirecionar = new Intent(getApplicationContext(), ConsultarProdutoActivity.class);
-                    startActivity(intentRedirecionar);
-                    finish();
-                }
-            });
+                        //RETORNA PARA A TELA DE CONSULTA
+                        Intent intentRedirecionar = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intentRedirecionar);
+                        finish();
+                    }
+                });
 
-            //MOSTRA A MENSAGEM NA TELA
-            alertDialog.show();
+                //MOSTRA A MENSAGEM NA TELA
+                alertDialog.show();
+            }
         }
     }
 
@@ -146,18 +152,14 @@ public class EditarProdutoActivity extends AppCompatActivity {
 
         //PEGA O ID PESSOA QUE FOI PASSADO COMO PARAMETRO ENTRE AS TELAS
         Bundle extra =  this.getIntent().getExtras();
-        int id_pessoa = extra.getInt("id_produto");
+        id_pessoa = extra.getInt("id_produto");
 
         //CONSULTA UMA PESSOA POR ID
         ProdutoModel pessoaModel = pessoaRepository.GetPessoa(id_pessoa);
 
-        //SETA O CÓDIGO NA VIEW
-        editTextCodigo.setText(String.valueOf(pessoaModel.getCodigo()));
-        editTextCodigo.setEnabled(false);
-
         //SETA O NOME NA VIEW
         editTextNome.setText(pessoaModel.getNome());
-
+        nome_antigo = pessoaModel.getNome();
         //SETA O VALOR NA VIEW
         editTextValor.setText(String.valueOf(pessoaModel.getValor()));
 

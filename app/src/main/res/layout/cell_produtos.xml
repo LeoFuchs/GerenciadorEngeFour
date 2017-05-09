@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/textViewProduto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="15dp"
+        android:text="Produto 1"
+        android:textColor="#000000"
+        android:textSize="@dimen/abc_dialog_padding_material"
+        android:textStyle="normal"
+        android:theme="@style/Base.Animation.AppCompat.Dialog" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="R$ 20,00"
+        android:id="@+id/textViewValor"
+        android:textColor="#85bb65"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
+
+<RelativeLayout
+android:orientation="horizontal"
+android:layout_width="match_parent"
+android:layout_height="21dp">
+
+<Button
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Excluir"
+    android:id="@+id/buttonExcluir"
+    android:background="@android:color/transparent"
+    android:textColor="#276bea"
+    android:typeface="monospace"
+    android:layout_alignParentTop="true"
+    android:layout_toRightOf="@+id/buttonEditar"
+    android:layout_toEndOf="@+id/buttonEditar"
+    android:layout_marginLeft="27dp"
+    android:layout_marginStart="27dp" />
+
+<Button
+    style="?android:attr/buttonStyleSmall"
+    android:layout_width="wrap_content"
+    android:layout_height="34dp"
+    android:text="Editar"
+    android:id="@+id/buttonEditar"
+    android:background="@android:color/transparent"
+    android:textColor="#276bea"
+    android:typeface="monospace"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+
+
+</RelativeLayout>
+</LinearLayout>

@@ -10,6 +10,9 @@ import java.util.List;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Model.ProdutoModel;
 import gerenciador.engefourjunior.com.gerenciadorengefour.Uteis.DataBase;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class ProdutoRepository {
     DataBase databaseUtil;
 
@@ -36,7 +39,6 @@ public class ProdutoRepository {
         /*EXECUTANDO INSERT DE UM NOVO REGISTRO*/
         databaseUtil.GetConexaoDataBase().insert("tb_produto",null,contentValues);
     }
-
     /***
      * ATUALIZA UM REGISTRO JÁ EXISTENTE NA BASE
      * @param pessoaModel
@@ -99,10 +101,10 @@ public class ProdutoRepository {
         //MONTA A QUERY A SER EXECUTADA
         StringBuilder stringBuilderQuery = new StringBuilder();
         stringBuilderQuery.append(" SELECT id_produto,      ");
-        stringBuilderQuery.append("        ds_nome,        ");
-        stringBuilderQuery.append("        ds_valor    ");
+        stringBuilderQuery.append("        ds_nome,         ");
+        stringBuilderQuery.append("        ds_valor         ");
         stringBuilderQuery.append("  FROM  tb_produto       ");
-        stringBuilderQuery.append(" ORDER BY ds_nome       ");
+        stringBuilderQuery.append(" ORDER BY ds_nome        ");
 
         //CONSULTANDO OS REGISTROS CADASTRADOS
         Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
@@ -133,5 +135,76 @@ public class ProdutoRepository {
         //RETORNANDO A LISTA DE PESSOAS
         return pessoas;
 
+    }
+    public boolean produto_existe(String nome_produto){
+
+        boolean produto_existe = TRUE;
+        Cursor cursor =  databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_produto WHERE ds_nome= '"+ nome_produto+"'",null);
+        cursor.moveToFirst();
+        if(cursor.isAfterLast())
+            produto_existe = FALSE;
+
+        return produto_existe;
+    }
+    public List<String> SelecionarNomes(){
+
+        List<String> produtos = new ArrayList<String>();
+
+        //MONTA A QUERY A SER EXECUTADA
+        StringBuilder stringBuilderQuery = new StringBuilder();
+        stringBuilderQuery.append(" SELECT ds_nome      ");
+        stringBuilderQuery.append("  FROM  tb_produto      ");
+
+        //CONSULTANDO OS REGISTROS CADASTRADOS
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
+
+        /*POSICIONA O CURSOR NO PRIMEIRO REGISTRO*/
+        cursor.moveToFirst();
+
+
+        String NomeProduto;
+
+        //REALIZA A LEITURA DOS REGISTROS ENQUANTO NÃO FOR O FIM DO CURSOR
+        while (!cursor.isAfterLast()){
+
+            /* CRIANDO UMA NOVA PESSOAS */
+            NomeProduto =  new String();
+
+            //ADICIONANDO OS DADOS DA PESSOA
+            NomeProduto=cursor.getString(cursor.getColumnIndex("ds_nome"));
+
+            //ADICIONANDO UMA PESSOA NA LISTA
+            produtos.add(NomeProduto);
+
+            //VAI PARA O PRÓXIMO REGISTRO
+            cursor.moveToNext();
+        }
+
+        //RETORNANDO A LISTA DE PESSOAS
+        return produtos;
+    }
+    public Float consultarPreço(String nome, int quantidade){
+
+        //MONTA A QUERY A SER EXECUTADA
+        StringBuilder stringBuilderQuery = new StringBuilder();
+        stringBuilderQuery.append(" SELECT ds_valor      ");
+        stringBuilderQuery.append("  FROM  tb_produto      ");
+        stringBuilderQuery.append("  WHERE ds_nome = '" +nome+"'");
+
+        //CONSULTANDO OS REGISTROS CADASTRADOS
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
+        Float ValorProduto = null;
+        /*POSICIONA O CURSOR NO PRIMEIRO REGISTRO*/
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            ValorProduto = new Float(0);//ADICIONANDO OS DADOS DA PESSOA
+            ValorProduto=cursor.getFloat(cursor.getColumnIndex("ds_valor"));
+            cursor.moveToNext();
+        }
+
+        //RETORNANDO A LISTA DE PESSOAS
+        double aux = ValorProduto * Float.valueOf(quantidade);
+        String aux2 = String.valueOf(aux);
+        return Float.valueOf(aux2);
     }
 }

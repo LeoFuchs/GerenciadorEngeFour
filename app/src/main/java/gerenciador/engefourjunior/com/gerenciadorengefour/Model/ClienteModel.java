@@ -3,9 +3,9 @@ package gerenciador.engefourjunior.com.gerenciadorengefour.Model;
 
 public class ClienteModel {
     private Integer codigo;
-    private String  nome;
-    private String  email;
-    private String  telefone;
+    private String nome;
+    private String email;
+    private String telefone;
 
 
     public Integer getCodigo() {
