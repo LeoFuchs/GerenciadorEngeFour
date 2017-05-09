@@ -20,6 +20,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -30,21 +31,27 @@
         </activity>
         <activity
             android:name=".NovaVenda"
+            android:screenOrientation="portrait"
             android:label="@string/nova_venda" />
         <activity
             android:name=".NovoCliente"
+            android:screenOrientation="portrait"
             android:label="@string/novo_cliente" />
         <activity
             android:name=".NovoProduto"
+            android:screenOrientation="portrait"
             android:label="@string/novo_produto" />
         <activity
             android:name=".EditarVendaActivity"
+            android:screenOrientation="portrait"
             android:label="@string/editar_venda" />
         <activity
             android:name=".EditarProdutoActivity"
+            android:screenOrientation="portrait"
             android:label="@string/editar_produto" />
         <activity
             android:name=".EditarClienteActivity"
+            android:screenOrientation="portrait"
             android:label="@string/editar_cliente" />
 
     </application>
