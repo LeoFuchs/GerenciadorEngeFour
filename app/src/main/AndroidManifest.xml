@@ -4,17 +4,49 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!--SPLASH SCREEN-->
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NovaVenda"
+            android:label="@string/nova_venda" />
+        <activity
+            android:name=".NovoCliente"
+            android:label="@string/novo_cliente" />
+        <activity
+            android:name=".NovoProduto"
+            android:label="@string/novo_produto" />
+        <activity
+            android:name=".EditarVendaActivity"
+            android:label="@string/editar_venda" />
+        <activity
+            android:name=".EditarProdutoActivity"
+            android:label="@string/editar_produto" />
+        <activity
+            android:name=".EditarClienteActivity"
+            android:label="@string/editar_cliente" />
+
     </application>
 
 </manifest>
