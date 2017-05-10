@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         if (intent.hasExtra("SWITCH_TAB")) {
             final int tab = intent.getExtras().getInt("SWITCH_TAB");
-            Log.d("lala", String.valueOf(tab));
             mSectionsPagerAdapter.getPageTitle(tab);
 
         }
