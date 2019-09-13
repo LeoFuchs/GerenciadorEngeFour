@@ -1,7 +1,7 @@
-# GerenciadorEngeFour
+# Gerenciador de Vendas (Sales Manager)
 
-Gerenciador de Vendas solicitado por um cliente para efetuar o controle de suas vendas pessoais. 
-<p>
-Desenvolvido por acadêmicos de Engenharia de Computação da UFMS, membros da EngeFour Jr, Empresa Júnior formada por graduandos de diversas áreas da engenharia, situada em Campo Grande, Mato Grosso do Sul.
-<p>
-(http://engefourjunior.com.br)
+Project developed within EngeFour Jr. (http://engefourjunior.com.br) during the graduation.
+
+Custom project for a client who required an Android app to control their informal sales flow.
+
+Download Link: https://play.google.com/store/apps/details?id=com.engefour.gerirvendas&hl=pt_BR
